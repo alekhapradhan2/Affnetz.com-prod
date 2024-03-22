@@ -2,8 +2,6 @@ package com_affnetz_qa_test;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 import java.io.IOException;
-
-import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
