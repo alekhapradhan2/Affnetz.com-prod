@@ -3,7 +3,7 @@ package com_affnetz_qa_InternalPages;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
-public class TributeRepo_T1 {
+public class TributeRepo_Prod {
 	
 	Page page;
 	
@@ -15,7 +15,7 @@ public class TributeRepo_T1 {
 	
 	private String donorDetailsTable=".v-data-table__wrapper tr";
 	
-	public TributeRepo_T1(Page page) {
+	public TributeRepo_Prod(Page page) {
 		this.page=page;
 	}
 	

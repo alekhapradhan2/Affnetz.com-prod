@@ -15,7 +15,7 @@ import com.microsoft.playwright.Page;
 import com_affnetz_qa_InternalPages.DashboardRepo_Prod;
 import com_affnetz_qa_InternalPages.PeerToPeerFundraisingRepo_Prod;
 import com_affnetz_qa_InternalPages.TributeDonationReportRepo_Prod;
-import com_affnetz_qa_InternalPages.TributeRepo_T1;
+import com_affnetz_qa_InternalPages.TributeRepo_Prod;
 import com_affnetz_qa_Publicpages.LoginPageRepo_Prod;
 import com_affnetz_qa_Publicpages.PublicCampaignRepo_Repo;
 import com_affnetz_qa_Publicpages.PublicDonationRepo_Prod;
@@ -33,7 +33,7 @@ public class PublicDonationTest_Prod {
 	PublicTributeDonationRepo_Prod pdr;
 	TributeDonationReportRepo_Prod TributeDonationRepo;
 	ITestResult result;
-	TributeRepo_T1 tribute;
+	TributeRepo_Prod tribute;
 	PublicCampaignRepo_Repo pc;
 	PeerToPeerFundraisingRepo_Prod fund;
 	
@@ -249,7 +249,7 @@ public class PublicDonationTest_Prod {
 		dr=new DashboardRepo_Prod(page);
 		dr.clickOnTributeLink();
 		assertThat(page).hasURL(PlayWrightFactory_Prod.initProp().getProperty("publicTribute"));
-		tribute=new TributeRepo_T1(page);
+		tribute=new TributeRepo_Prod(page);
 		tribute.searchTributeName(tributeName);
 		assertEquals(tribute.getTributeName(), tributeName);
 		tribute.clickOnSearchedTribute();
