@@ -28,11 +28,11 @@ public class PlayWrightFactory_Prod {
 	static Properties prop;
 	static boolean flag=false;
 	
-	public static Page intitBrowser(String browserName,String whichPage) throws IOException
+	public static Page intitBrowser(String whichPage) throws IOException
 	{
 		playwright=Playwright.create();
 
-		switch (browserName.toLowerCase()) {
+		switch (initProp().getProperty("browser").toLowerCase()) {
 		case "chromium":
 			 browser=playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(flag));
 			break;

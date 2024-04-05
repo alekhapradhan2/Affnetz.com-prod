@@ -79,7 +79,7 @@ public class Listener_Prod implements ITestListener {
 	{
 		System.out.println(result.getMethod().getMethodName()+" passed");
 		test.get().pass("Prod_Test passed");
-//		test.get().pass(result.getThrowable(),MediaEntityBuilder.createScreenCaptureFromPath(playWrightFactory.takeScreenshot()).build());
+		test.get().pass(result.getThrowable(),MediaEntityBuilder.createScreenCaptureFromPath(PlayWrightFactory_Prod.takeScreenshot()).build());
 		test.get().getModel().setEndTime(getTime(result.getEndMillis()));
 		
 		

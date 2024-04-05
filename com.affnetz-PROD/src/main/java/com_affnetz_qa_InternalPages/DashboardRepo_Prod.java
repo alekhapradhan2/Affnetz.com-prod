@@ -27,6 +27,14 @@ public class DashboardRepo_Prod {
 	
 	private String peerToPeerFundaraisingLink="xpath=//div[text()='Peer-to-Peer Fundraising']";
 	
+	private String dashboardLink="//div[text()='Dashboard']";
+	
+	private String receiptDashboardLink="//a[text()='Dashboard']";
+	
+	private String stakeHoldersLink="//div[text()='Stakeholders']";
+	
+	private String settingsLink="//div[text()='Settings']";
+	
 	public DashboardRepo_Prod(Page page)
 	{
 		this.page=page;
@@ -110,6 +118,24 @@ public class DashboardRepo_Prod {
 	
 	public void clickOnPeerToPeerFundarasing() {
 		page.click(peerToPeerFundaraisingLink);
+	}
+	
+	public void goToDashBoard() {
+		try {
+			
+			page.click(dashboardLink);
+			
+		} catch (Exception e) {
+			page.click(receiptDashboardLink);
+		}
+	}
+	
+	public void goToStakeHolders() {
+		page.click(stakeHoldersLink);
+	}
+	
+	public void goToSettingPage() {
+		page.click(settingsLink);
 	}
 	
 

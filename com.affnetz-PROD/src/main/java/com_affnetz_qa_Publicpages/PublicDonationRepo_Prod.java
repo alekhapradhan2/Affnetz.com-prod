@@ -48,7 +48,8 @@ public class PublicDonationRepo_Prod {
 	private String donateButton="xpath=//button[@id='donate_btn']";
 	
 	private String recepitDownload="xpath=//span[text()='Download Receipt']";
-	
+
+	private String receiptError="//div[@class='card-details']";
 	
 	
 	//Cunstroctor
@@ -124,17 +125,17 @@ public class PublicDonationRepo_Prod {
 		assertThat(receipt).isVisible();
 	}
 	
-	public boolean downloadReceipt() {
+	public boolean downloadReceipt() throws InterruptedException {
 		Locator receipt=page.locator(recepitDownload).first();
 		receipt.waitFor();
 		receipt.click();
+		Thread.sleep(5000);
+		Locator msg=page.locator(receiptError);
 		boolean flag=false;
-		String url=page.url();
-		if(url.contains("invoice"))
+		if(!msg.isVisible())
 		{
-			flag=true;			
+			flag=true;
 		}
-		
 		return flag;
 	}
 }

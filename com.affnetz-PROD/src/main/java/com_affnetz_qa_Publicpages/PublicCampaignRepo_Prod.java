@@ -3,7 +3,7 @@ package com_affnetz_qa_Publicpages;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
-public class PublicCampaignRepo_Repo {
+public class PublicCampaignRepo_Prod {
 	
 	Page page;
 	
@@ -13,8 +13,18 @@ public class PublicCampaignRepo_Repo {
 	
 	private String campaignDonateButton="//span[contains(text(),'Donate')]";
 	
+	private String teamSection="//div[text()='Teams']";
 	
-	public PublicCampaignRepo_Repo(Page page)
+	private String teamName="//h1";
+	
+	private String teamTitle="//h2";
+	
+	private String clickTeam="//a[contains(text(),'View Team')]";
+	
+	private String teamDonateButton="//span[contains(text(),' Donate')]";
+	
+	
+	public PublicCampaignRepo_Prod(Page page)
 	{
 		this.page=page;
 	}
@@ -42,5 +52,31 @@ public class PublicCampaignRepo_Repo {
 	
 	public void clickOnCampDonate() {
 		page.locator(campaignDonateButton).first().click();
+	}
+	
+	public void goToTeamSection() {
+		page.click(teamSection);
+	}
+	
+	public String getTeamName() {
+		Locator name=page.locator(teamName).first();
+		name.waitFor();
+		String teamName=name.textContent();
+		return teamName;
+	}
+	
+	public String getTeamTitle() {
+		Locator name=page.locator(teamTitle).first();
+		name.waitFor();
+		String teamTitle=name.textContent();
+		return teamTitle;
+	}
+	
+	public void clickOnTeam() {
+		page.click(clickTeam);
+	}
+	
+	public void teamDonate() {
+		page.click(teamDonateButton);
 	}
 }

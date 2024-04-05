@@ -47,6 +47,8 @@ public Page page;
 	
 	private String recepitDownload="xpath=//span[text()='Download Receipt']";
 	
+	private String receiptError="//div[@class='card-details']";
+	
 	private String tributeNameIndonationForm="xpath=//h1";
 	
 	
@@ -126,17 +128,17 @@ public Page page;
 	}
 	
 	public boolean downloadReceipt() throws InterruptedException {
+		Thread.sleep(2000);
 		Locator receipt=page.locator(recepitDownload).first();
 		receipt.waitFor();
 		receipt.click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
+		Locator msg=page.locator(receiptError);
 		boolean flag=false;
-		String url=page.url();
-		if(url.contains("invoice"))
+		if(!msg.isVisible())
 		{
-			flag=true;			
+			flag=true;
 		}
-		
 		return flag;
 	}
 	

@@ -23,7 +23,7 @@ public class Logintest_Prod {
 	public void setUp() throws IOException
 	{
 //		pf=new playWrightFactory();
-		page=PlayWrightFactory_Prod.intitBrowser(PlayWrightFactory_Prod.initProp().getProperty("browser"),"login");
+		page=PlayWrightFactory_Prod.intitBrowser("login");
 		lp=new LoginPageRepo_Prod(page);
 		
 	}

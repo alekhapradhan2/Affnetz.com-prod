@@ -9,15 +9,21 @@ public class HomePageRepo_Prod {
 //	private String logoutButton="xpath=//a[@title='logout']";
 	private String superAdminText="xpath=//div[text()='Super Admin']";
 	
+	private String donateButton="//span[contains(text(),'Donate')]";
+	
 	public HomePageRepo_Prod(Page page)
 	{
 		this.page=page;
 	}
 	
-	public void clickOnHome()
+	public void clickOnHome() throws InterruptedException
 	{
 		page.click(Home);
 	}
 	
-
+	public void clickDonate()
+	{
+		page.click(donateButton);
+	}
+	
 }

@@ -39,6 +39,7 @@ public class LoginPageRepo_Prod {
 	
 	private String forgotPasswordLink="xpath=//a[contains(text(),'Forgot Your Password')]";
 	
+	private String loginLink="//a[text()='Login']";
 	
 	//Cunstructor
 	
@@ -142,6 +143,11 @@ public class LoginPageRepo_Prod {
 	{
 		page.click(forgotPasswordLink);
 	}
+	
+	public void goToLoginPage() {
+		page.click(loginLink);
+	}
+	
 	
 	
 	
