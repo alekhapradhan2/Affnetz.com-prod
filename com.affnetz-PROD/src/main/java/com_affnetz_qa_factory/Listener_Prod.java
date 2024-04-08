@@ -37,6 +37,7 @@ public class Listener_Prod implements ITestListener {
 		reporter.config().setReportName("Affnetz Test Results");
 		exetentReport.attachReporter(reporter);
 		exetentReport.setSystemInfo("System", "Window");
+		exetentReport.setSystemInfo("Enviroment", "Affnetz_Production");
 		exetentReport.setSystemInfo("Author", "Alekha Pradhan");
 		
 		return exetentReport;
@@ -79,7 +80,7 @@ public class Listener_Prod implements ITestListener {
 	{
 		System.out.println(result.getMethod().getMethodName()+" passed");
 		test.get().pass("Prod_Test passed");
-		test.get().pass(result.getThrowable(),MediaEntityBuilder.createScreenCaptureFromPath(PlayWrightFactory_Prod.takeScreenshot()).build());
+//		test.get().pass(result.getThrowable(),MediaEntityBuilder.createScreenCaptureFromPath(PlayWrightFactory_Prod.takeScreenshot()).build());
 		test.get().getModel().setEndTime(getTime(result.getEndMillis()));
 		
 		

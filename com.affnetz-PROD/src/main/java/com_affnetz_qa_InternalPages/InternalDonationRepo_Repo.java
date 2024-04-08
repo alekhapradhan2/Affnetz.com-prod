@@ -6,7 +6,7 @@ import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
-public class InternalDonationRepo {
+public class InternalDonationRepo_Repo {
 	
 	public Page page;
 	
@@ -51,7 +51,7 @@ public class InternalDonationRepo {
 	private String dashboard="//a[text()='Dashboard']";
 	
 	
-	public InternalDonationRepo(Page page)
+	public InternalDonationRepo_Repo(Page page)
 	{
 		this.page=page;
 	}

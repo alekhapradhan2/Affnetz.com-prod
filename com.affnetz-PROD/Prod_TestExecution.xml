@@ -8,5 +8,6 @@
     <suite-file path="src/test/resources/Login_Prod.xml" />
     <suite-file path="src/test/resources/Publicdonation_Prod.xml" />
     ...<suite-file path="src/test/resources/InternalDonation_Prod.xml" />
+    <suite-file path="src/test/resources/ManualDonation.xml" />
   </suite-files>
 </suite>

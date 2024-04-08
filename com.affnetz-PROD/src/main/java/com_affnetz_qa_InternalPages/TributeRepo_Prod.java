@@ -61,6 +61,8 @@ public class TributeRepo_Prod {
 	
 	private String receiptError="//div[@class='card-details']";
 	
+	private String manualDonationButton="//span[contains(text(),'Manual Donation')]";
+	
 	public TributeRepo_Prod(Page page) {
 		this.page=page;
 	}
@@ -193,6 +195,11 @@ public class TributeRepo_Prod {
 		}
 		return flag;
 	}
+	
+	public void clickOnManualDonationButton() {
+		page.click(manualDonationButton);
+	}
+	
 	
 	
 

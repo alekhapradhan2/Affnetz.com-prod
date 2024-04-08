@@ -5,7 +5,7 @@ import static org.testng.Assert.assertEquals;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
-public class SettingPageRepo {
+public class SettingPageRepo_Repo {
 	
 	Page page;
 	private String screenProcessPage="//div[text()='Screening Process']";
@@ -13,7 +13,7 @@ public class SettingPageRepo {
 	private String tableRoows=".v-data-table__wrapper tr";
 	
 	
-	public SettingPageRepo(Page page)
+	public SettingPageRepo_Repo(Page page)
 	{
 		this.page=page;
 	}

@@ -14,7 +14,7 @@ import com.microsoft.playwright.Page;
 
 import com_affnetz_qa_InternalPages.DashboardRepo_Prod;
 import com_affnetz_qa_InternalPages.PeerToPeerFundraisingRepo_Prod;
-import com_affnetz_qa_InternalPages.SettingPageRepo;
+import com_affnetz_qa_InternalPages.SettingPageRepo_Repo;
 import com_affnetz_qa_InternalPages.TributeDonationReportRepo_Prod;
 import com_affnetz_qa_InternalPages.TributeRepo_Prod;
 import com_affnetz_qa_Publicpages.LoginPageRepo_Prod;
@@ -37,7 +37,7 @@ public class PublicDonationTest_Prod {
 	TributeRepo_Prod tribute;
 	PublicCampaignRepo_Prod pc;
 	PeerToPeerFundraisingRepo_Prod fund;
-	SettingPageRepo settRepo;
+	SettingPageRepo_Repo settRepo;
 	
 	
 	
@@ -146,7 +146,7 @@ public class PublicDonationTest_Prod {
 	}
 	@Test(priority = 8,dependsOnMethods = "isDonationDone",groups = {"DirectDonation","Donation"})
 	public void isDonorShownInScreeningProcessForApproveTheuser() throws InterruptedException {
-		settRepo=new SettingPageRepo(page);
+		settRepo=new SettingPageRepo_Repo(page);
 		dr=new DashboardRepo_Prod(page);
 		dr.goToSettingPage();
 		settRepo.gotToScreeningProcessPage();
@@ -307,7 +307,7 @@ public class PublicDonationTest_Prod {
 	}
 	@Test(priority = 19,groups = {"Tribute","Donation"},dependsOnMethods = "isDonationDone_Tribute")
 	public void isDonorShownInScreeningProcessForApproveTheuser_Tribute() throws InterruptedException {
-		settRepo=new SettingPageRepo(page);
+		settRepo=new SettingPageRepo_Repo(page);
 		dr=new DashboardRepo_Prod(page);
 		dr.goToSettingPage();
 		settRepo.gotToScreeningProcessPage();
@@ -465,7 +465,7 @@ public class PublicDonationTest_Prod {
 	}
 	@Test(priority = 30,groups = {"Campaign","Donation"},dependsOnMethods = "isDonationDone_Campaign")
 	public void isDonorShownInScreeningProcessForApproveTheuser_Campaign() throws InterruptedException {
-		settRepo=new SettingPageRepo(page);
+		settRepo=new SettingPageRepo_Repo(page);
 		dr=new DashboardRepo_Prod(page);
 		dr.goToSettingPage();
 		settRepo.gotToScreeningProcessPage();
@@ -642,7 +642,7 @@ public class PublicDonationTest_Prod {
 	
 	@Test(priority = 42,groups = {"Campaign","Donation","Team"},dependsOnMethods = "isDonationDone_Team")
 	public void isDonorShownInScreeningProcessForApproveTheuser_Team() throws InterruptedException {
-		settRepo=new SettingPageRepo(page);
+		settRepo=new SettingPageRepo_Repo(page);
 		dr=new DashboardRepo_Prod(page);
 		dr.goToSettingPage();
 		settRepo.gotToScreeningProcessPage();

@@ -14,10 +14,10 @@ import com.microsoft.playwright.Page;
 
 import com_affnetz_qa_InternalPages.DashboardRepo_Prod;
 import com_affnetz_qa_InternalPages.HomePageRepo_Prod;
-import com_affnetz_qa_InternalPages.InternalDonationRepo;
+import com_affnetz_qa_InternalPages.InternalDonationRepo_Repo;
 import com_affnetz_qa_InternalPages.PeerToPeerFundraisingRepo_Prod;
-import com_affnetz_qa_InternalPages.SettingPageRepo;
-import com_affnetz_qa_InternalPages.StakeHolderRepo;
+import com_affnetz_qa_InternalPages.SettingPageRepo_Repo;
+import com_affnetz_qa_InternalPages.StakeHolderRepo_Prod;
 import com_affnetz_qa_InternalPages.TributeDonationReportRepo_Prod;
 import com_affnetz_qa_InternalPages.TributeRepo_Prod;
 import com_affnetz_qa_factory.PlayWrightFactory_Prod;
@@ -25,10 +25,10 @@ import com_affnetz_qa_factory.PlayWrightFactory_Prod;
 public class InternalDonationTest_Prod {
 	Page page;
 	HomePageRepo_Prod hp;
-	InternalDonationRepo intDon;
+	InternalDonationRepo_Repo intDon;
 	DashboardRepo_Prod db;
-	StakeHolderRepo sp;
-	SettingPageRepo settRepo;
+	StakeHolderRepo_Prod sp;
+	SettingPageRepo_Repo settRepo;
 	TributeRepo_Prod tr;
 	TributeDonationReportRepo_Prod TributeDonationRepo;
 	PeerToPeerFundraisingRepo_Prod pr;
@@ -61,7 +61,7 @@ public class InternalDonationTest_Prod {
 	
 	@Test(priority = 2,groups = {"DirectDonation","Donation"},dependsOnMethods = "clickDirectDonatteButton")
 	public void fillAllDonorDetails() throws InterruptedException {
-		intDon=new InternalDonationRepo(page);
+		intDon=new InternalDonationRepo_Repo(page);
 		fname="Ashman"+x;
 		lname="Derw"+x;
 		mail="engineering+ash"+x+"@affnetz.com";
@@ -73,24 +73,24 @@ public class InternalDonationTest_Prod {
 	}
 	@Test(priority = 3,groups = {"DirectDonation","Donation"})
 	public void setCardDetils() {
-		intDon=new InternalDonationRepo(page);
+		intDon=new InternalDonationRepo_Repo(page);
 		intDon.setCardDetails();
 	}
 	@Test(priority = 4,groups = {"DirectDonation","Donation"})
 	public void submitAllDetails() throws InterruptedException {
 		Thread.sleep(2000);
-		intDon=new InternalDonationRepo(page);
+		intDon=new InternalDonationRepo_Repo(page);
 		intDon.clickOnDonate();
 	}
 	@Test(priority = 5,groups = {"DirectDonation","Donation"})
 	public void isDonationDone() throws InterruptedException {
 		
-		intDon=new InternalDonationRepo(page);
+		intDon=new InternalDonationRepo_Repo(page);
 		intDon.isFormSubmit();
 	}
 	@Test(priority = 6,groups = {"DirectDonation","Donation"},dependsOnMethods = "isDonationDone")
 	public void isReciptDownload() throws InterruptedException {
-		intDon=new InternalDonationRepo(page);
+		intDon=new InternalDonationRepo_Repo(page);
 		boolean flag=intDon.downloadReceipt();
 		assertTrue(flag);
 	}
@@ -107,7 +107,7 @@ public class InternalDonationTest_Prod {
 	}
 	@Test(priority =8 ,groups = {"DirectDonation","Donation"},dependsOnMethods = "isDonationDone")
 	public void isDonorShownInScreeningProcessForApproveTheUser() throws InterruptedException {
-		settRepo=new SettingPageRepo(page);
+		settRepo=new SettingPageRepo_Repo(page);
 		db=new DashboardRepo_Prod(page);
 		db.goToSettingPage();
 		settRepo.gotToScreeningProcessPage();
@@ -123,7 +123,7 @@ public class InternalDonationTest_Prod {
 		hp.clickOnHome();
 		db=new DashboardRepo_Prod(page);
 		db.goToStakeHolders();
-		sp=new StakeHolderRepo(page);
+		sp=new StakeHolderRepo_Prod(page);
 		Thread.sleep(2000);
 		sp.searchUser(mail);
 		String userName=fname+"  "+lname;
@@ -199,7 +199,7 @@ public class InternalDonationTest_Prod {
 	}
 	@Test(priority = 18,groups = {"Donation","Tribute"},dependsOnMethods = "isDonationDone_Tribute")
 	public void isReciptDownload_Tribute() throws InterruptedException {
-		intDon=new InternalDonationRepo(page);
+		intDon=new InternalDonationRepo_Repo(page);
 		boolean flag=intDon.downloadReceipt();
 		assertTrue(flag);
 	}
@@ -228,7 +228,7 @@ public class InternalDonationTest_Prod {
 	}
 	@Test(priority = 21,groups = {"Donation","Tribute"},dependsOnMethods = "isDonationDone_Tribute")
 	public void isDonorShownInScreeningProcessForApproveTheuser_Tribute() throws InterruptedException {
-		settRepo=new SettingPageRepo(page);
+		settRepo=new SettingPageRepo_Repo(page);
 		db=new DashboardRepo_Prod(page);
 		db.goToSettingPage();
 		settRepo.gotToScreeningProcessPage();
@@ -273,7 +273,7 @@ public class InternalDonationTest_Prod {
 	}
 	@Test(priority = 25,groups = {"Donation","Campaign"})
 	public void setuserDetails_Campaign() {
-		intDon=new InternalDonationRepo(page);
+		intDon=new InternalDonationRepo_Repo(page);
 		campaignFirstName="Julli"+w;
 		campaignLastname="dwar"+w;
 		campaignmail="engineering+julli"+w+"@affnetz.com";
@@ -283,23 +283,23 @@ public class InternalDonationTest_Prod {
 	}
 	@Test(priority = 26,groups = {"Donation","Campaign"})
 	public void setUserAddress_Campaign() throws InterruptedException {
-		intDon=new InternalDonationRepo(page);
+		intDon=new InternalDonationRepo_Repo(page);
 		intDon.setAddress();
 	}
 	@Test(priority = 27,groups = {"Donation","Campaign"})
 	public void setCardDetails_Campaing() {
-		intDon=new InternalDonationRepo(page);
+		intDon=new InternalDonationRepo_Repo(page);
 		intDon.setCardDetails();
 	}
 	@Test(priority = 28,groups = {"Donation","Campaign"})
 	public void isDonationDone_Campaing() {
-		intDon=new InternalDonationRepo(page);
+		intDon=new InternalDonationRepo_Repo(page);
 		intDon.clickOnDonate();
 		intDon.isFormSubmit();
 	}
 	@Test(priority = 29,groups = {"Donation","Campaign"})
 	public void isReceiptDownload_Campaign() throws InterruptedException {
-		intDon=new InternalDonationRepo(page);
+		intDon=new InternalDonationRepo_Repo(page);
 		boolean flag=intDon.downloadReceipt();
 		assertTrue(flag);
 	}
@@ -328,7 +328,7 @@ public class InternalDonationTest_Prod {
 	}
 	@Test(priority = 32,groups = {"Donation","Campaign"})
 	public void isDonorShownInScreeningProcessForApproveTheuser_Campaign() throws InterruptedException {
-		settRepo=new SettingPageRepo(page);
+		settRepo=new SettingPageRepo_Repo(page);
 		db=new DashboardRepo_Prod(page);
 		db.goToSettingPage();
 		settRepo.gotToScreeningProcessPage();
@@ -389,7 +389,7 @@ public class InternalDonationTest_Prod {
 		
 		@Test(priority = 37,groups = {"Donation","Team"})
 		public void setuserDetails_Team() {
-			intDon=new InternalDonationRepo(page);
+			intDon=new InternalDonationRepo_Repo(page);
 			teamDonorFirstName="JulliTeam"+z;
 			teamDonorLastName="dwarTeam"+z;
 			teamDonorMailId="engineering+team"+z+"@affnetz.com";
@@ -399,23 +399,23 @@ public class InternalDonationTest_Prod {
 		}
 		@Test(priority = 38,groups = {"Donation","Team"})
 		public void setUserAddress_Team() throws InterruptedException {
-			intDon=new InternalDonationRepo(page);
+			intDon=new InternalDonationRepo_Repo(page);
 			intDon.setAddress();
 		}
 		@Test(priority = 39,groups = {"Donation","Team"})
 		public void setCardDetails_Team() {
-			intDon=new InternalDonationRepo(page);
+			intDon=new InternalDonationRepo_Repo(page);
 			intDon.setCardDetails();
 		}
 		@Test(priority = 40,groups = {"Donation","Team"})
 		public void isDonationDone_Team() {
-			intDon=new InternalDonationRepo(page);
+			intDon=new InternalDonationRepo_Repo(page);
 			intDon.clickOnDonate();
 			intDon.isFormSubmit();
 		}
 		@Test(priority = 41,groups = {"Donation","Team"})
 		public void isReceiptDownload_Team() throws InterruptedException {
-			intDon=new InternalDonationRepo(page);
+			intDon=new InternalDonationRepo_Repo(page);
 			boolean flag=intDon.downloadReceipt();
 			assertTrue(flag);
 		}
@@ -449,7 +449,7 @@ public class InternalDonationTest_Prod {
 		}
 		@Test(priority = 43,groups = {"Donation","Team"})
 		public void isDonorShownInScreeningProcessForApproveTheuser_Team() throws InterruptedException {
-			settRepo=new SettingPageRepo(page);
+			settRepo=new SettingPageRepo_Repo(page);
 			db=new DashboardRepo_Prod(page);
 			db.goToSettingPage();
 			settRepo.gotToScreeningProcessPage();
